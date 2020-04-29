@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -34,6 +36,14 @@ public class Board extends JPanel implements ActionListener {
     JLabel statusbar;
     Shape curPiece;
     Tetrominoes[] board;
+    Color color = new Color (255, 175, 175);
+    
+    public void paintComponent(Graphics g) {
+    	super.paintComponent(g);
+    	setBackground(color);
+    	
+    }
+
 
 
 
@@ -47,7 +57,7 @@ public class Board extends JPanel implements ActionListener {
        statusbar =  parent.getStatusBar();
        board = new Tetrominoes[BoardWidth * BoardHeight];
        addKeyListener(new TAdapter());
-       clearBoard();  
+       clearBoard();         
     }
 
     public void actionPerformed(ActionEvent e) {
