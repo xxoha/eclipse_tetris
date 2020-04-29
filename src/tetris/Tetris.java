@@ -11,6 +11,8 @@ import java.awt.event.WindowEvent;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
+import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,11 +20,13 @@ import javax.swing.WindowConstants;
 
 
 public class Tetris extends JFrame {
-	    public static void main(String[] args) {
+	    public static void main(String[] args) {	    	
+	    	
 
         Tetris game = new Tetris();
         game.setLocationRelativeTo(null);
         game.setVisible(true);
+        
         
         ImageIcon img = new ImageIcon("screenshots/tetris.png");
     	game.setIconImage(img.getImage());
@@ -41,7 +45,8 @@ public class Tetris extends JFrame {
     public Tetris() {
     	
     	    	
-    	getContentPane().setBackground(Color.GRAY);
+    	Color color = new Color(189, 189, 189);
+    	getContentPane().setBackground(color);
     	
     	
     	score = new JLabel("Score:");
@@ -64,6 +69,13 @@ public class Tetris extends JFrame {
         		+ " 일시정지     : 버튼 P");
         add(board);
         board.start();
+        
+        JButton button = new JButton("reset");
+        button.setSize(20, 20);
+    	button.setLocation(20, 20);
+    	Color c = new Color (209, 178, 255);
+    	button.setBackground(c);
+    	board.add(button);
 
         setSize(300, 400);
         setTitle("TETRIS");
