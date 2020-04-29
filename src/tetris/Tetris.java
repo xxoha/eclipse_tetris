@@ -16,12 +16,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
 
-public class Tetris extends JFrame {
-	    public static void main(String[] args) {	    	
-	    	
+public class Tetris extends JFrame implements ActionListener {
+	
+	    public static void main(String[] args) {
+	    
 
         Tetris game = new Tetris();
         game.setLocationRelativeTo(null);
@@ -70,12 +72,14 @@ public class Tetris extends JFrame {
         add(board);
         board.start();
         
-        JButton button = new JButton("reset");
+        JButton button = new JButton("Á¾·á");
         button.setSize(20, 20);
     	button.setLocation(20, 20);
     	Color c = new Color (209, 178, 255);
     	button.setBackground(c);
+    	button.addActionListener(this);
     	board.add(button);
+    	
 
         setSize(300, 400);
         setTitle("TETRIS");
@@ -99,12 +103,20 @@ public class Tetris extends JFrame {
         	    
         	  }
         	});
+        
    }
 
    public JLabel getStatusBar() {
        return statusbar;
    }
- 
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	System.exit(0);
+	
+}
+
+
 
 
 }
