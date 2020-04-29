@@ -43,8 +43,8 @@ public class Tetris extends JFrame {
     	    	
     	getContentPane().setBackground(Color.GRAY);
     	
-    	    	
-    	score =new JLabel("Score:");
+    	
+    	score = new JLabel("Score:");
         statusbar = new JLabel(" 0");
         add(score, BorderLayout.SOUTH);
         add(statusbar, BorderLayout.SOUTH);
